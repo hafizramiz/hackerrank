@@ -1,0 +1,67 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'migratoryBirds' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def migratoryBirds(arr):
+    # Write your code here
+    max=0
+    num=0
+    if arr.count(2)>arr.count(1):
+        max=arr.count(2)
+        num=2
+    elif arr.count(2)==arr.count(1):
+        num=1
+    else:
+        num=1
+        max=arr.count(1)
+
+
+    if arr.count(3)>max:
+        max=arr.count(3)
+        num=3
+    elif arr.count(3)==max:
+        num=num
+    else:
+        num=num
+
+    if arr.count(4)>max:
+        max=arr.count(4)
+        num=4
+    elif arr.count(4)==max:
+        num=num
+    else:
+        num=num
+
+    if arr.count(5)>max:
+        max=arr.count(5)
+        num=5
+    elif arr.count(5)==max:
+        num=num
+    else:
+        num=num
+
+    return num
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
