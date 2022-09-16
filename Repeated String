@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'repeatedString' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. LONG_INTEGER n
+#
+
+def repeatedString(s, n):
+    # Write your code here
+    length_s=len(s)
+    sum=0
+    count_a=s.count("a")
+    if len(s)==1 and s=="a":
+        return n
+    else:
+        sum=count_a*(n//length_s)
+        kalan=n%length_s
+        if kalan!=0:
+            kalan_a=s[:kalan].count("a")
+            sum=kalan_a+sum
+        return sum
+
+ 
+    
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    n = int(input().strip())
+
+    result = repeatedString(s, n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
