@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'kaprekarNumbers' function below.
+#
+# The function accepts following parameters:
+#  1. INTEGER p
+#  2. INTEGER q
+#
+
+def kaprekarNumbers(p, q):
+    # Write your code here
+    liste=[]
+    for i in range(p,q+1):
+        kare=i*i
+        d=len(str(i))
+        kare_length=len(str(kare))
+        sum0=int(str(kare)[-d:])
+        if kare_length==1:
+            sum1=0
+        else:
+            sum1=int(str(kare)[:-d])
+        result=sum0+sum1
+        if result==i:
+            liste.append(i)
+    if liste==[]:
+        print ("INVALID RANGE")      
+    else:
+        print(*sorted(liste),sep=" ")
+        
+        
+if __name__ == '__main__':
+    p = int(input().strip())
+
+    q = int(input().strip())
+
+    kaprekarNumbers(p, q)
